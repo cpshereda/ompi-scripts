@@ -75,6 +75,7 @@ if [ $? != 0 ]; then
 fi
 pushd ${PWD}/libfabric_install/bin
 ls
+exit 0
 echo "TRYING TO GET AN ALLOCATION TO RUN CRITERION"
 if [ "$NERSC_HOST" == "cori" ]
 then
