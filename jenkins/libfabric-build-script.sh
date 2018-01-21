@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# abort on error
-set -e
-
 ifaketty () { script -qfc "$(printf "%q " "$@")"; }
 export PATH=${HOME}/edison_root/bin:${PATH}
 echo $PATH
