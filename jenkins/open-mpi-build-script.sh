@@ -237,6 +237,22 @@ run_example() {
     fi
 }
 
+case ${BATCH_ENVIRONMENT} in
+	"")
+		;;
+	slurm)
+		salloc -N 2 -n 2 ${SRUN_OPTIONS} /bin/bash
+		if [ $? != 0 ]; then
+			echo "salloc failed so not running tests"
+			export MPIRUN_MODE=none
+		fi
+		;;
+	*)
+		echo "Unknown batch environment"
+		exit 1
+		;;
+esac
+
 if test "${MPIRUN_MODE}" != "none"; then
     echo "--> running examples"
     echo "localhost cpu=2" > "${WORKSPACE}/hostfile"
