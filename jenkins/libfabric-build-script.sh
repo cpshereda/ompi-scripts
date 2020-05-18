@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ifaketty () { script -qfc "$(printf "%q " "$@")"; }
+export PATH=/usr/bin:$PATH
 export PATH=${HOME}/edison_root/bin:${PATH}
 echo $PATH
 echo $SHELL
